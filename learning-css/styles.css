@@ -1,4 +1,21 @@
 * {
     
-color: blueviolet;
+color: #43196a;
+background-color: aqua;
+}
+
+.alert {
+    color: red;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+#para-2 {
+    color: green;
+    border: solid 6px red;
+}
+
+#para-3 {
+    color: purple;
+    border: solid 2px green;
 }

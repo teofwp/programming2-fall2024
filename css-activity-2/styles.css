@@ -1,0 +1,21 @@
+.odd {
+    font-size: medium;
+    background-color: #fc8a8a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#second-ele {
+    font-size: 36px;
+    color: blue;
+}
+
+.third-ele {
+    font-size: 24px;
+    font: bold;
+}
+
+#fourth-ele {
+    font-size: 24px;
+    background-color: lightgreen;
+    font: bold;
+}

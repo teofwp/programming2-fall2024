@@ -11,11 +11,10 @@
 
 .third-ele {
     font-size: 24px;
-    font: bold;
 }
 
 #fourth-ele {
     font-size: 24px;
     background-color: lightgreen;
-    font: bold;
+    font-weight: 600;
 }

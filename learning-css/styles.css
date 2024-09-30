@@ -19,3 +19,18 @@ background-color: aqua;
     color: purple;
     border: solid 2px green;
 }
+
+
+.read, .unread{
+    color: white;
+    background-color: black;
+}
+
+.read {
+    font-size: 24px;
+}
+
+.unread {
+    font-size: 30px;
+    font-weight: 700;
+}

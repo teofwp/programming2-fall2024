@@ -1,0 +1,22 @@
+div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+.box1 {
+   padding: 200; 
+}
+
+.box2{
+    
+}
+
+#submit{
+    background-color: pink;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+}

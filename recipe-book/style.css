@@ -12,7 +12,7 @@ body {
     height: 400px;
 }
 
-.title {
+h1 {
     padding: 15px;
     border: double;
     border-color: sandybrown;
@@ -26,6 +26,7 @@ body {
 
 .links {
     padding: 10px;
+    font-size: 20px;
 }
 
 #openingpagetitle{
@@ -33,7 +34,3 @@ body {
     font-weight: 500;
     color: saddlebrown;
 }
-
-
-
-

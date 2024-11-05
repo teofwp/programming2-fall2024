@@ -6,11 +6,13 @@ body {
     margin: 0;
     background: #eee;
     font-family: Besley, serif;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .header {
     background: white;
-    border-bottom: 1px solid #ddd;
+    border-bottom: -11px solid #ddd;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
@@ -19,7 +21,7 @@ body {
 }
 
 .profile-image {
-    background: rebeccapurple;
+    background: red;
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     width: 48px;
@@ -27,7 +29,7 @@ body {
 }
 
 .logo {
-    color: rebeccapurple;
+    color: red;
     font-size: 32px;
     font-weight: 900;
     font-style: italic;
@@ -36,7 +38,7 @@ body {
 button {
     border: none;
     border-radius: 8px;
-    background: rebeccapurple;
+    background: red;
     color: white;
     padding: 8px 24px;
 }
@@ -44,7 +46,7 @@ button {
 a {
     /* this removes the line under our links */
     text-decoration: none;
-    color: rebeccapurple;
+    color: red;
 }
 
 ul {
@@ -66,14 +68,104 @@ ul {
 .content {
     display: flex;
     flex-direction: row;
+    height: calc(100vh-100px);
 }
 
 .gallery {
     display: flex;
     flex-direction: row;
+    flex: 2 1 400px;
+    gap: 20px;
+    overflow-y: scroll;
+    height: 950px;
 }
 
 .description {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    flex: 1 1 100px;
+    padding: 20px;
+    border: 2px solid grey;
+    margin: 10px;
+    border-radius: 10px;
 }
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40%;
+    /*width: 200px;*/
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    /*flex-grow: 1;*/
+    align-items: center;
+    flex: 1 1 100px;
+    padding: 20px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.label {
+}
+
+.profile-pic {
+    /*width: 80%;*/
+    height: 65%;
+    width: auto;
+    /*flex-grow: 3;*/
+}
+
+.more-info {
+    background-color: lightgray;
+    /*flex-grow: 2;*/
+    width: 80%;
+    border-radius: 15px;
+    padding: 50px;
+}
+
+.darius {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 87px);
+}
+
+.beautify {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    flex-basis: 300px;
+    height: 70%;
+}
+
+.choose {
+    flex-grow: 1;
+}
+
+#mess {
+    width: 100%;
+}
+
+#ron {
+    width: 100%;
+}
+
+#ant {
+    width: 100%;
+}
+
+/*
+* {
+    border: red 1px solid;
+}
+*/

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Name Generator</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1>NAME GENERATOR</h1>
+        <h3>Generate a name/title for yourself using two important factors!</h3>
+        <div>
+            <label for="month">Birth Month: </label>
+            <select name="month" id="month">
+                <option value="January">January</option>
+                <option value="Febuary">Febuary</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </div>
+        <div>
+            <label for="vp">GOAT Vaccination Spot: </label>
+            <select name="vp" id="vp">
+                <option value="Big Gym">Big Gym</option>
+                <option value="Small Gym">Small Gym</option>
+                <option value="Wallgreens">Wallgreens</option>
+                <option value="Clinic">Clinic</option>
+                <option value="Else">Somewhere Else</option>
+            </select>
+        </div>
+        <div>
+            <label for="ht">Heads or Tails: </label>
+            <select name="ht" id="ht">
+                <option value="Heads">Heads</option>
+                <option value="Tails">Tails</option>
+            </select>
+        </div>
+
+        <button onclick="generate()">Login</button>
+        <p id="message"></p>
+    </body>
+</html>

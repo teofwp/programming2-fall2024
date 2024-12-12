@@ -35,5 +35,3 @@ function removeSpecific() {
         alert("Not found in list");
     }
 }
-
-//showTasks();

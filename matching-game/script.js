@@ -62,9 +62,34 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(cardPairs);
 
         // shuffle that array
-        cardPairs = shuffledArray(cardPairs);
+        cardPairs = shuffleArray(cardPairs);
 
         // iterate over that array to assign cards
+        for (let i = 0; i < cardPairs.length; i++) {
+            cards[i].innerText = cardPairs[i];
+            cards[i].onclick = isClicked;
+        }
+    }
+
+    function isClicked(e) {
+        let cardClicked = e.srcElement;
+        console.log(cardClicked);
+        let numClicked = document.getElementsByClassName("clicked").length;
+        if (numclicked == 2) {
+            // look for match
+        }
+    }
+
+    function isMatch(item1, item2) {
+        for (let i = 0; i < Object.keys(pairs).length; i++) {
+            if (item1 == pairs[i].word && item2 == pairs[i].match) {
+                return true;
+            }
+            if (item1 == pairs[i].match && item2 == pairs[i].word) {
+                return true;
+            }
+        }
+        return false;
     }
 
     shuffleAssign();

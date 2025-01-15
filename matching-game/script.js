@@ -1,4 +1,50 @@
+let timerInterval;
+let elapsedTime = 0;
+let matchedPairs = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
+    const timerDisplay = document.getElementById("timer-display");
+
+    // Format time
+    function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600)
+            .toString()
+            .padStart(2, "0");
+        const mins = Math.floor((seconds % 3600) / 60)
+            .toString()
+            .padStart(2, "0");
+        const secs = (seconds % 60).toString().padStart(2, "0");
+        return `${hrs}:${mins}:${secs}`;
+    }
+
+    // Update the timer display
+    function updateDisplay() {
+        timerDisplay.textContent = formatTime(elapsedTime);
+    }
+
+    // Start the timer
+    if (!timerInterval) {
+        timerInterval = setInterval(() => {
+            elapsedTime++;
+            updateDisplay();
+        }, 1000);
+    }
+});
+
+// All the pairs of fractions
+document.addEventListener("DOMContentLoaded", () => {
+    // Format time
+    function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600)
+            .toString()
+            .padStart(2, "0");
+        const mins = Math.floor((seconds % 3600) / 60)
+            .toString()
+            .padStart(2, "0");
+        const secs = (seconds % 60).toString().padStart(2, "0");
+        return `${hrs}:${mins}:${secs}`;
+    }
+
     const pairs = [
         { word: "8/4", match: "2" },
         { word: "1/2", match: "3/6" },
@@ -34,6 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cards = document.getElementsByClassName("item");
     console.log(cards);
+
+    // Function that checks to see if the game is done
+    function checkGameCompletion() {
+        console.log(matchedPairs);
+        if (matchedPairs >= 10) {
+            setTimeout(function () {
+                clearInterval(timerInterval);
+                alert(`Congratulations! You completed the game in ${formatTime(elapsedTime)}.`);
+            }, 150);
+        }
+    }
 
     // Fisher-Yates (or Knuth) Shuffle algorithm
     function shuffleArray(array) {
@@ -71,15 +128,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function pause(duration) {
+        return new Promise((resolve) => setTimeout(resolve, duration));
+    }
+
+    // Changes colors of clicked pairs
     function isClicked(e) {
         let cardClicked = e.srcElement;
-        console.log(cardClicked);
-        let numClicked = document.getElementsByClassName("clicked").length;
-        if (numclicked == 2) {
-            // look for match
+        cardClicked.classList.add("clicked");
+        let clicked = document.getElementsByClassName("clicked");
+        if (clicked.length == 2) {
+            if (isMatch(clicked[0].innerText, clicked[1].innerText)) {
+                clicked[0].style.backgroundColor = "green";
+                clicked[1].style.backgroundColor = "green";
+
+                clicked[0].disabled = true;
+                clicked[1].disabled = true;
+
+                clicked[0].classList.remove("clicked");
+                clicked[0].classList.remove("clicked");
+
+                matchedPairs++;
+                checkGameCompletion();
+            } else {
+                clicked[0].style.backgroundColor = "red";
+                clicked[1].style.backgroundColor = "red";
+                setTimeout(function () {
+                    clicked[0].style.backgroundColor = "";
+                    clicked[1].style.backgroundColor = "";
+                    clicked[0].classList.remove("clicked");
+                    clicked[0].classList.remove("clicked");
+                }, 1000);
+            }
         }
     }
 
+    // Checks to see if the clicked pairs are matches or not
     function isMatch(item1, item2) {
         for (let i = 0; i < Object.keys(pairs).length; i++) {
             if (item1 == pairs[i].word && item2 == pairs[i].match) {
@@ -89,8 +173,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 return true;
             }
         }
+
         return false;
     }
 
     shuffleAssign();
+
+    // Resets game with restart button
+    const refreshButton = document.getElementById("start");
+    refreshButton.addEventListener("click", () => {
+        window.location.reload();
+    });
+
+    // In-game directions
+    const directionsButton = document.getElementById("directions");
+    directionsButton.addEventListener("click", () => {
+        alert(
+            "Match all the fraction pairs. Once you have matched all the pairs on the screen, you may press the restart button to receive a new set of fraction pairs."
+        );
+    });
 });
